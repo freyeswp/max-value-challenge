@@ -25,7 +25,7 @@ class Main
 			}
 		}
 
-		if ( !$x || !$y || $n  ) {
+		if ( !$x || !$y || !$n  ) {
 			return 'Missing elements or data type not correct';
 		}
 
