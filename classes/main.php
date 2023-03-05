@@ -16,17 +16,21 @@ class Main
 		);
 	}
 
-	public function findMaxValue ( $x, $y, $n ) {
+	public function findMaxValue ( $data ) {
+
+		if ( count( $data ) < 3 ) {
+			return 'Missing elements or data type not correct';
+		}
+
 		$ans = -1000000000;
+		$x = $data[0];
+		$y = $data[1];
+		$n = $data[2];
 
 		for ( $k = 0; $k <= $n; $k++ ) {
 			if ( $k % $x == $y ) {
 				$ans = max( $ans, $k );
 			}
-		}
-
-		if ( !$x || !$y || !$n  ) {
-			return 'Missing elements or data type not correct';
 		}
 
 		return ( ( $ans >= 0 && $ans <= $n) ? $ans : -1 );
@@ -35,7 +39,7 @@ class Main
 	public function runCases () {
 		foreach ( $this->test_data as $data ) {
 
-			echo '<h3>'.$this->findMaxValue( $data[0], $data[1], $data[2] ).'</h3>';
+			echo '<h3>'.$this->findMaxValue( $data ).'</h3>';
 
 		}
 	}
